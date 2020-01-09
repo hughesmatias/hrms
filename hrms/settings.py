@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'hrms_app.apps.HrmsAppConfig'
 ]
 
 MIDDLEWARE = [
