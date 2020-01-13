@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, JsonResponse
 from .models import Person
 from django.template import loader
 from django.core import serializers
@@ -19,4 +19,9 @@ def show(request, id):
     'firstName': p.firstName
   }, request))
 
-  
+def getBiyId(request, id):
+  try:
+    p = Person.objects.get(id=id)
+  except Person.DoesNoExist:
+    raise Http404("Person does not exist")
+  return HttpResponse(p)
